@@ -21,11 +21,6 @@ Phonebook/
 g++ -o phonebook main.cpp Person.cpp Phonebook.cpp FileManager.cpp
 ```
 
-### Using Code::Blocks or Dev-C++
-1. Create a new project (Console Application)
-2. Add all .cpp and .h files to the project
-3. Build and run
-
 ### Using Visual Studio
 1. Create a new C++ Console Application project
 2. Add all source files to the project
@@ -134,7 +129,7 @@ This implementation demonstrates:
 6. **Search functionality**: Case-insensitive keyword search
 
 ---
-**Developed by:** [Your Team Name]  
+**Developed by:** Ikhwan, Hanief, Made  
 **Department:** Teknik Elektro dan Teknologi Informasi  
 **Faculty:** Teknik - Universitas Gadjah Mada  
 **Year:** 2025
