@@ -1,6 +1,0 @@
-John|Doe|08123456789|Jl. Kaliurang No. 123|Yogyakarta
-Jane|Smith|08198765432|Jl. Gejayan No. 45|Sleman
-Ahmad|Wijaya|08156789012|Jl. Malioboro No. 67|Yogyakarta
-Sarah|Johnson|08134567890|Jl. Solo No. 89|Bantul
-Budi|Santoso|08167890123|Jl. Affandi No. 12|Sleman
-Ikhwan|Teladan|081234567890|Pogung Rejo|Sleman
