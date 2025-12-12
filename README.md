@@ -14,7 +14,7 @@ Phonebook/
 └── output.txt (will be created after saving)
 ```
 
-A phonebook app I made for my ProgDas class project at UGM. It's a console application written in C++ that lets you manage your contacts.
+A phonebook app We made for my ProgDas class project at UGM. It's a console application written in C++ that lets you manage your contacts.
 
 ## What it does
 
