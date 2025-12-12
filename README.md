@@ -15,7 +15,7 @@ Phonebook/
 └── output.txt (will be created after saving)
 ```
 
-A phonebook app We made for my ProgDas class project at UGM. It's a console application written in C++ that lets you manage your contacts.
+This project is a C++ console-based phonebook application developed for a course project at Universitas Gadjah Mada (UGM). It allows users to manage contacts through a simple interactive menu, including adding, editing, deleting, searching, and saving contact information.
 
 ## What it does
 
