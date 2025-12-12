@@ -16,120 +16,253 @@ Phonebook/
 
 ## Compilation Instructions
 
-### Using g++ (Command Line)
-```bash
-g++ -o phonebook main.cpp Person.cpp Phonebook.cpp FileManager.cpp
+
+
+# Phonebook Pro
+
+A phonebook app I made for my OOP class project at UGM. It's a console application written in C++ that lets you manage your contacts.
+
+## What it does
+
+This is basically a contact manager that runs in your terminal. You can:
+
+- Add, edit, and delete contacts
+- Search for people by name, phone, or email
+- See statistics about your contacts
+- Get birthday reminders
+- Organize contacts into categories (Family, Friends, Work, School)
+- Mark favorites
+- Sort your contacts
+- Save and load everything from a text file
+
+The interface has colors too, which makes it easier to use than boring black and white text.
+
+## What it looks like
+
+When you run it, you'll see this:
+
+```
++===============================================================+
+|                                                               |
+|                  PHONEBOOK PRO                                |
+|                                                               |
+|            Universitas Gadjah Mada - 2025                     |
+|          Teknik Elektro & Teknologi Informasi                 |
+|                                                               |
++===============================================================+
+Loading... Done!
+
+===========================================================================
+                        MAIN MENU
+===========================================================================
+  [i] Contacts: 0  |  [*] Favorites: 0
+
+---------------------------------------------------------------------------
+  CONTACT MANAGEMENT
+---------------------------------------------------------------------------
+  1. [+] Add New Contact
+  2. [~] Edit Contact
+  3. [-] Delete Contact
+  4. [=] View All Contacts
+  5. [?] Quick Search
+  6. [?] Advanced Search
+
+---------------------------------------------------------------------------
+  ORGANIZATION & ANALYSIS 
+---------------------------------------------------------------------------
+  7. [#] View Statistics Dashboard
+  8. [@] View by Category
+  9. [%] List All Categories
+ 10. [!] Birthday Reminders
+
+---------------------------------------------------------------------------
+  FILE OPERATIONS 
+---------------------------------------------------------------------------
+ 11. [<] Load from File
+ 12. [>] Save to File
+ 13. [*] View Favorites
+ 14. [*] Toggle Favorite
+ 15. [v] Sort Contacts
+
+---------------------------------------------------------------------------
+  0. [X] Exit Application
+===========================================================================
+
+Select option [0-15]: 
 ```
 
-### Using Visual Studio
-1. Create a new C++ Console Application project
-2. Add all source files to the project
-3. Build solution (Ctrl+Shift+B)
-4. Run (F5)
+A contact looks like this:
 
-## Running the Application
-
-After compilation, run:
-```bash
-./phonebook        # Linux/Mac
-phonebook.exe      # Windows
+```
+[1] [*] Name        : John Doe (Age: 26)
+   Category    : Friends
+   Phone       : 08123456789
+   Email       : john.doe@email.com
+   Instagram   : @johndoe
+   Address     : Jl. Kaliurang No. 123
+   City        : Yogyakarta
+   Birthday    : 15/03/1998
 ```
 
-## Features (Functional Requirements)
+## How to run it
 
-| Req-ID | Feature | Description |
-|--------|---------|-------------|
-| F-01 | Add New Contact | Add person data with name, phone, address, city |
-| F-02 | Edit Contact | Modify existing contact information |
-| F-03 | Delete Contact | Remove contact from phonebook |
-| F-04 | View All Contacts | Display all contacts in formatted list |
-| F-05 | Search Contact | Find contacts by name or phone number |
-| F-06 | Load from File | Read contact data from input.txt |
-| F-07 | Save to File | Write contact data to output.txt |
+You need a C++ compiler. If you're on:
+- **Windows**: Install MinGW
+- **Linux**: You probably already have g++
+- **Mac**: Install Xcode command line tools
 
-## Input File Format
+Then:
 
-The input file uses pipe-delimited format:
+1. Download or clone this repo
+2. Open terminal in the folder
+3. Compile it:
+     ### Using g++ (Command Line)
+    ```bash
+    g++ -o phonebook main.cpp Person.cpp Phonebook.cpp FileManager.cpp
+    ```
+    ### Using powershell
+   ```bash
+   g++ -std=c++11 -o phonebook main.cpp Person.cpp Phonebook.cpp FileManager.cpp
+   ```
+5. Run it:
+   ```bash
+   ./phonebook        # Mac/Linux
+   phonebook.exe      # Windows
+   ```
+
+## Files in this project
+
 ```
-FirstName|LastName|PhoneNumber|Address|City
+Colors.h            - Makes the text colorful
+Person.h/cpp        - The contact data stuff
+Phonebook.h/cpp     - Manages all the contacts
+FileManager.h/cpp   - Saves and loads files
+main.cpp            - The main program
+input.txt           - Sample contacts to test with
 ```
 
-Example:
+## How to use it
+
+First time you run it:
+1. Pick option 11 to load the sample data
+2. Press enter (it uses input.txt by default)
+3. Now you have 8 contacts to play with
+
+The menu is pretty self-explanatory. Just type the number and hit enter.
+
+Some useful options:
+- **1** - Add a new contact
+- **4** - See all your contacts
+- **5** - Quick search
+- **7** - See statistics (how many contacts per city, etc.)
+- **10** - Check if anyone has a birthday today
+- **12** - Save your changes
+- **0** - Exit
+
+## The data format
+
+The app saves contacts in a text file with pipe symbols (|) between fields:
+
 ```
-John|Doe|08123456789|Jl. Kaliurang No. 123|Yogyakarta
-Jane|Smith|08198765432|Jl. Gejayan No. 45|Sleman
+John|Doe|08123456789|Jl. Kaliurang 123|Yogyakarta|john@email.com|johndoe|08123456789|15/03/1998|Friends|1
 ```
 
-## Usage Examples
+The fields are:
+- First name, Last name, Phone, Address, City, Email, Instagram, WhatsApp, Birthday (DD/MM/YYYY), Category, Favorite (1 or 0)
 
-### Menu Options
-1. **Add New Contact**: Enter contact details when prompted
-2. **Edit Contact**: Select contact number and update fields
-3. **Delete Contact**: Select contact number to remove
-4. **View All Contacts**: Display complete phonebook
-5. **Search Contact**: Enter name or phone to search
-6. **Load from File**: Import contacts from text file
-7. **Save to File**: Export contacts to text file
-0. **Exit**: Close application
+## Features
 
-## Sample Usage Flow
+**Basic stuff:**
+- Add/edit/delete contacts
+- View all contacts
+- Search (quick and advanced)
+- Load and save to file
 
-1. Start program
-2. Select option 6 to load sample data from input.txt
-3. Select option 4 to view all loaded contacts
-4. Select option 1 to add a new contact
-5. Select option 5 to search for a contact
-6. Select option 7 to save all contacts to output.txt
-7. Select option 0 to exit
+**Extra features:**
+- Birthday tracking with age calculation
+- Statistics dashboard
+- Categories (Family, Friends, Work, School)
+- Favorites system
+- Sort by name, city, or age
+- Email validation
+- Colors for better UI
 
-## Testing Checklist
+**Advanced search** lets you filter by multiple things at once like name, city, age range, category, etc.
 
-- ✅ Add new contact
-- ✅ Edit existing contact
-- ✅ Delete contact
-- ✅ View all contacts
-- ✅ Search by name
-- ✅ Search by phone number
-- ✅ Load from file
-- ✅ Save to file
-- ✅ Handle empty phonebook
-- ✅ Handle invalid input
+## Project structure
 
-## Object-Oriented Design
+This was a team project. We split it up like this:
 
-**Classes:**
-- `Person`: Represents individual contact data
-- `Phonebook`: Manages collection of Person objects
-- `FileManager`: Handles file I/O operations
-- `PhonebookApp`: Main application controller
+- **Person class** (Ikhwan Teladan) - Handles individual contact data, birthday calculations, email validation
+- **Phonebook class** (Hanief Anwar Hayat) - Manages the contact list, search, sort, statistics
+- **UI and FileManager** (Made Abel Noelanza) - The interface, menus, file operations, and putting it all together
 
-**OOP Principles Applied:**
-- **Encapsulation**: Private data members with public methods
-- **Abstraction**: Clean interface hiding implementation details
-- **Modularity**: Separate classes for different responsibilities
-- **Data Hiding**: Use of getters/setters
+## Common problems
 
-## Error Handling
+**Colors not showing?**
+Your terminal might not support them. The app still works fine, just ignore the weird [31m codes.
 
-The application handles:
-- Empty phonebook operations
-- Invalid menu selections
-- Invalid contact indices
-- File I/O errors
-- Empty search results
+**Can't compile?**
+Make sure you use `-std=c++11` flag. Some older compilers need it.
 
-## Notes for Report
+**Can't find input.txt?**
+Make sure input.txt is in the same folder as the program.
 
-This implementation demonstrates:
-1. **UML to Code transformation**: Direct mapping from class diagram
-2. **OOP concepts**: Encapsulation, classes, objects
-3. **File I/O**: Reading and writing structured data
-4. **Data structures**: Vector for dynamic storage
-5. **User interface**: Console-based menu system
-6. **Search functionality**: Case-insensitive keyword search
+**Birthday shows age 0?**
+Check the date format. It needs to be DD/MM/YYYY like 15/03/1998.
 
----
-**Developed by:** Ikhwan, Hanief, Made  
-**Department:** Teknik Elektro dan Teknologi Informasi  
-**Faculty:** Teknik - Universitas Gadjah Mada  
-**Year:** 2025
+## About this project
+
+Made for Object-Oriented Programming course at:
+- Universitas Gadjah Mada
+- Fakultas Teknik
+- Departemen Teknik Elektro dan Teknologi Informasi
+- 2024/2025
+
+## Testing
+
+We tested everything. All 27 test cases passed.
+
+Tested:
+- Adding, editing, deleting contacts
+- Searching (both quick and advanced)
+- File loading and saving
+- Birthday reminders
+- Statistics
+- Categories
+- Favorites
+- Sorting
+
+## What we learned
+
+This project taught us:
+- How to design classes properly
+- Using STL containers (vector, map)
+- File I/O in C++
+- Making a decent console UI
+- Working as a team
+- Git and version control
+
+## Future ideas
+
+If we keep working on this, we might add:
+- SQLite database instead of text files
+- A GUI version using Qt
+- Photo support for contacts
+- Contact groups
+- Duplicate detection
+
+## Notes
+
+The code is pretty well documented if you want to understand how it works. Each class has its own responsibility:
+- **Person** = one contact's data
+- **Phonebook** = collection of contacts + operations
+- **FileManager** = reading/writing files
+- **PhonebookApp** = the UI and menu system
+
+We used OOP principles like encapsulation, abstraction, and modularity. The code is split into logical parts that work together.
+
+
+Made by Ikhwan, Hanief, Noelanza for ProgDas class, UGM 2025
+
+If you have questions or find bugs, open an issue on GitHub.
